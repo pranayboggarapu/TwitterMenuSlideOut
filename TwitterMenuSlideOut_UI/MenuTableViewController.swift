@@ -8,20 +8,58 @@
 
 import UIKit
 
+struct MenuItem {
+    
+    let imageView: UIImage
+    let menuSubItemLabel: String
+}
+
+
 class MenuTableViewController: UITableViewController {
 
+    var menuItemsList: [MenuItem] = [
+        MenuItem(imageView: #imageLiteral(resourceName: "profile"), menuSubItemLabel: "Profile"),
+        MenuItem(imageView: #imageLiteral(resourceName: "lists"), menuSubItemLabel: "Lists"),
+        MenuItem(imageView: #imageLiteral(resourceName: "bookmarks"), menuSubItemLabel: "Bookmarks"),
+        MenuItem(imageView: #imageLiteral(resourceName: "moments"), menuSubItemLabel: "Items")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
+        
+//        menuItemsList =
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return menuItemsList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "newId")
-        cell.textLabel?.text = "Menu \(indexPath.row)"
+        let cell = MenuItemCellTableViewCell(style: .default, reuseIdentifier: "newId")
+        //let
+        cell.menuImageView.image = menuItemsList[indexPath.row].imageView
+        cell.menuItemLabel.text = menuItemsList[indexPath.row].menuSubItemLabel
+//        cell.menuImageView.image = menuItemsList[indexPath.row].imageView
+//        cell.menuItemLabel.text = menuItemsList[indexPath.row].menuSubItemLabel
+        print("The text for \(indexPath.row) is \(menuItemsList[indexPath.row].menuSubItemLabel)")
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = MenuHeaderView()
+        return headerView
+    }
+    
+    
+    
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 200
+//    }
 
 }

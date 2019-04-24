@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		248DECB522681903007ED3DE /* BaseSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248DECB422681903007ED3DE /* BaseSliderViewController.swift */; };
+		24E2CD8A226AFFC6008A8E6A /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */; };
+		24E2CD8C226B076E008A8E6A /* ElementSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */; };
+		24E2CD8E226EA34E008A8E6A /* SizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */; };
+		24E2CD90226EB3DE008A8E6A /* MenuItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8F226EB3DE008A8E6A /* MenuItemCellTableViewCell.swift */; };
+		24E2CD92226EC9BD008A8E6A /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD91226EC9BC008A8E6A /* IconImageView.swift */; };
 		24EF953D225A8FDB00BA8586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF953C225A8FDB00BA8586 /* AppDelegate.swift */; };
 		24EF953F225A8FDB00BA8586 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF953E225A8FDB00BA8586 /* ViewController.swift */; };
 		24EF9544225A8FE000BA8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24EF9543225A8FE000BA8586 /* Assets.xcassets */; };
@@ -25,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		248DECB422681903007ED3DE /* BaseSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSliderViewController.swift; sourceTree = "<group>"; };
+		24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuHeaderView.swift; path = TwitterMenuSlideOut_UI/MenuHeaderView.swift; sourceTree = "<group>"; };
+		24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSpacer.swift; sourceTree = "<group>"; };
+		24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizedImageView.swift; path = TwitterMenuSlideOut_UI/SizedImageView.swift; sourceTree = "<group>"; };
+		24E2CD8F226EB3DE008A8E6A /* MenuItemCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItemCellTableViewCell.swift; path = TwitterMenuSlideOut_UI/MenuItemCellTableViewCell.swift; sourceTree = "<group>"; };
+		24E2CD91226EC9BC008A8E6A /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		24EF9539225A8FDB00BA8586 /* TwitterMenuSlideOut_UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterMenuSlideOut_UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24EF953C225A8FDB00BA8586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24EF953E225A8FDB00BA8586 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,9 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		248DECB3226818DD007ED3DE /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				248DECB422681903007ED3DE /* BaseSliderViewController.swift */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
 		24EF9530225A8FDB00BA8586 = {
 			isa = PBXGroup;
 			children = (
+				24E2CD91226EC9BC008A8E6A /* IconImageView.swift */,
+				24E2CD8F226EB3DE008A8E6A /* MenuItemCellTableViewCell.swift */,
+				24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */,
+				24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */,
+				24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */,
 				24EF953B225A8FDB00BA8586 /* TwitterMenuSlideOut_UI */,
 				24EF953A225A8FDB00BA8586 /* Products */,
 			);
@@ -73,6 +98,7 @@
 		24EF953B225A8FDB00BA8586 /* TwitterMenuSlideOut_UI */ = {
 			isa = PBXGroup;
 			children = (
+				248DECB3226818DD007ED3DE /* BaseController */,
 				24EF955C225AC02F00BA8586 /* MenuTableViewController.swift */,
 				24EF953C225A8FDB00BA8586 /* AppDelegate.swift */,
 				24EF953E225A8FDB00BA8586 /* ViewController.swift */,
@@ -183,9 +209,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E2CD8E226EA34E008A8E6A /* SizedImageView.swift in Sources */,
+				24E2CD90226EB3DE008A8E6A /* MenuItemCellTableViewCell.swift in Sources */,
+				24E2CD8C226B076E008A8E6A /* ElementSpacer.swift in Sources */,
 				24EF953F225A8FDB00BA8586 /* ViewController.swift in Sources */,
 				24EF953D225A8FDB00BA8586 /* AppDelegate.swift in Sources */,
+				24E2CD8A226AFFC6008A8E6A /* MenuHeaderView.swift in Sources */,
+				248DECB522681903007ED3DE /* BaseSliderViewController.swift in Sources */,
 				24EF955D225AC02F00BA8586 /* MenuTableViewController.swift in Sources */,
+				24E2CD92226EC9BD008A8E6A /* IconImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
