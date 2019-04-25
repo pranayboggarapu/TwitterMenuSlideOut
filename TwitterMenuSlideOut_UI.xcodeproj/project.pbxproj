@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245E49682270127100C87825 /* ListsControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E49672270127100C87825 /* ListsControllerViewController.swift */; };
 		248DECB522681903007ED3DE /* BaseSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248DECB422681903007ED3DE /* BaseSliderViewController.swift */; };
+		24D3CEC42271511A00A7047E /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC32271511A00A7047E /* BookmarksViewController.swift */; };
+		24D3CEC622717B0C00A7047E /* TwitterMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC522717B0C00A7047E /* TwitterMenuTableViewController.swift */; };
+		24D3CEC82271896600A7047E /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC72271896600A7047E /* MenuTableViewCell.swift */; };
 		24E2CD8A226AFFC6008A8E6A /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */; };
 		24E2CD8C226B076E008A8E6A /* ElementSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */; };
 		24E2CD8E226EA34E008A8E6A /* SizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */; };
@@ -31,7 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		245E49672270127100C87825 /* ListsControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsControllerViewController.swift; sourceTree = "<group>"; };
 		248DECB422681903007ED3DE /* BaseSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSliderViewController.swift; sourceTree = "<group>"; };
+		24D3CEC32271511A00A7047E /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		24D3CEC522717B0C00A7047E /* TwitterMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMenuTableViewController.swift; sourceTree = "<group>"; };
+		24D3CEC72271896600A7047E /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuHeaderView.swift; path = TwitterMenuSlideOut_UI/MenuHeaderView.swift; sourceTree = "<group>"; };
 		24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSpacer.swift; sourceTree = "<group>"; };
 		24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizedImageView.swift; path = TwitterMenuSlideOut_UI/SizedImageView.swift; sourceTree = "<group>"; };
@@ -76,6 +84,10 @@
 		24EF9530225A8FDB00BA8586 = {
 			isa = PBXGroup;
 			children = (
+				24D3CEC72271896600A7047E /* MenuTableViewCell.swift */,
+				24D3CEC522717B0C00A7047E /* TwitterMenuTableViewController.swift */,
+				24D3CEC32271511A00A7047E /* BookmarksViewController.swift */,
+				245E49672270127100C87825 /* ListsControllerViewController.swift */,
 				24E2CD91226EC9BC008A8E6A /* IconImageView.swift */,
 				24E2CD8F226EB3DE008A8E6A /* MenuItemCellTableViewCell.swift */,
 				24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */,
@@ -215,8 +227,12 @@
 				24EF953F225A8FDB00BA8586 /* ViewController.swift in Sources */,
 				24EF953D225A8FDB00BA8586 /* AppDelegate.swift in Sources */,
 				24E2CD8A226AFFC6008A8E6A /* MenuHeaderView.swift in Sources */,
+				24D3CEC622717B0C00A7047E /* TwitterMenuTableViewController.swift in Sources */,
+				24D3CEC42271511A00A7047E /* BookmarksViewController.swift in Sources */,
 				248DECB522681903007ED3DE /* BaseSliderViewController.swift in Sources */,
+				24D3CEC82271896600A7047E /* MenuTableViewCell.swift in Sources */,
 				24EF955D225AC02F00BA8586 /* MenuTableViewController.swift in Sources */,
+				245E49682270127100C87825 /* ListsControllerViewController.swift in Sources */,
 				24E2CD92226EC9BD008A8E6A /* IconImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

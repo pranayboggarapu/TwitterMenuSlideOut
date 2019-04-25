@@ -11,22 +11,28 @@ import UIKit
 class BaseSliderViewController: UIViewController {
     
     var redViewLeadingConstraint: NSLayoutConstraint!
+    var redViewTrailingConstraint: NSLayoutConstraint!
     var yellowViewLeadingConstraint: NSLayoutConstraint!
     var menuWidth: CGFloat = 300
     var isMenuOpened: Bool = false
     var acceptableGestureVelocity: CGFloat = 500
+    var menuController = TwitterMenuTableViewController()
 
     var redView: UIView = {
         var v = UIView()
-        v.backgroundColor = .red
+        //v.backgroundColor = .red
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isMenuOpened ? .lightContent: .default
+    }
+    
     var blueView: UIView = {
         var b = UIView()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = .blue
+       // b.backgroundColor = .blue
         return b
     }()
     
@@ -41,9 +47,11 @@ class BaseSliderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //view.backgroundColor = .white
         setupParentView()
         setupChildViewConstraints()
         setupPanGesture()
+        setupTouchGesture()
         setupViewControllers()
         addYellowView()
     }
@@ -63,7 +71,12 @@ class BaseSliderViewController: UIViewController {
     
     fileprivate func setLeadingConstraints(_ x: CGFloat) {
         redViewLeadingConstraint.constant = x
+        redViewTrailingConstraint.constant = x
         yellowViewLeadingConstraint.constant = x
+    }
+    
+    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer) {
+        handleClose()
     }
     
     @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -92,44 +105,92 @@ class BaseSliderViewController: UIViewController {
         
         if !isMenuOpened {
             if gestureVelocity > acceptableGestureVelocity {
-                performAnimation(menuWidth)
+                handleOpen()
                 return
             }
             if x < menuWidth/2 {
-                performAnimation(0)
+                handleClose()
             } else {
-                performAnimation(menuWidth)
+                handleOpen()
             }
         } else {
             if abs(gestureVelocity) > acceptableGestureVelocity {
-                performAnimation(0)
+                handleClose()
                 return
             }
             if abs(gesture.translation(in: self.view).x)<menuWidth/2 {
-                performAnimation(menuWidth)
+                handleOpen()
             } else {
-                performAnimation(0)
+                handleClose()
             }
         }
     }
     
+    func handleOpen() {
+        performAnimation(menuWidth)
+    }
     
+    func handleClose() {
+        performAnimation(0)
+    }
     
     func performAnimation(_ widthConstant: CGFloat) {
+        print("Im in perform animation function")
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.setLeadingConstraints(widthConstant)
             
             self.yellowView.alpha = widthConstant == self.menuWidth ? 1 : 0
             
             self.isMenuOpened = widthConstant == self.menuWidth
-            
+            self.setNeedsStatusBarAppearanceUpdate()
             print("Menu opened \(self.isMenuOpened)")
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
     
+    var parentController: UIViewController = UINavigationController(rootViewController: ViewController())
+    
+    func handleMenuItemTap(_ indexPath: IndexPath) {
+        performRightSideViewCleanup()
+        handleClose()
+        switch indexPath.row {
+        case 0:
+            print("Home tapped")
+            parentController = UINavigationController(rootViewController: ViewController())
+            
+        case 1:
+            print("Lists tapped")
+            parentController = UINavigationController(rootViewController: ListsControllerViewController())
+            
+        case 2:
+            print("Bookmarks tapped")
+            parentController = BookmarksViewController()
+        
+        default:
+            print("Items tapped")
+            let tabBarController = UITabBarController()
+            let controller = UIViewController()
+            controller.navigationItem.title = "Moments"
+            let navController = UINavigationController(rootViewController: controller)
+            navController.tabBarItem.title = "Moments"
+            tabBarController.viewControllers = [navController]
+            parentController = tabBarController
+            
+        }
+        redView.addSubview(parentController.view)
+        addChild(parentController)
+        redView.bringSubviewToFront(yellowView)
+        
+    }
+    
+    func performRightSideViewCleanup() {
+        parentController.view.removeFromSuperview()
+        parentController.removeFromParent()
+    }
+    
+    
     fileprivate func setupParentView() {
-        view.backgroundColor = .yellow
+        //view.backgroundColor = .yellow
         view.addSubview(redView)
         view.addSubview(blueView)
     }
@@ -138,13 +199,16 @@ class BaseSliderViewController: UIViewController {
         NSLayoutConstraint.activate([
             redView.topAnchor.constraint(equalTo: view.topAnchor),
             redView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            redView.rightAnchor.constraint(equalTo: view.rightAnchor),
             blueView.topAnchor.constraint(equalTo: view.topAnchor),
             blueView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             blueView.widthAnchor.constraint(equalToConstant: menuWidth),
             
             blueView.trailingAnchor.constraint(equalTo: redView.leadingAnchor)
             ])
+        
+        redViewTrailingConstraint = redView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        redViewTrailingConstraint.isActive = true
+        
         redViewLeadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
         redViewLeadingConstraint.constant = 0
         redViewLeadingConstraint.isActive = true
@@ -152,12 +216,11 @@ class BaseSliderViewController: UIViewController {
     
     fileprivate func setupViewControllers() {
         
-        var homeController = ViewController()
-        let homeView = homeController.view!
+        let homeView = parentController.view!
         homeView.translatesAutoresizingMaskIntoConstraints = false
         redView.addSubview(homeView)
         
-        var menuController = MenuTableViewController()
+        
         let menuView = menuController.view!
         menuView.translatesAutoresizingMaskIntoConstraints = false
         blueView.addSubview(menuView)
@@ -174,12 +237,17 @@ class BaseSliderViewController: UIViewController {
             menuView.leftAnchor.constraint(equalTo: blueView.leftAnchor)
             ])
         
-        addChild(homeController)
+        addChild(parentController)
         addChild(menuController)
     }
     
     fileprivate func setupPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         view.addGestureRecognizer(panGesture)
+    }
+    
+    fileprivate func setupTouchGesture() {
+        let touchGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        yellowView.addGestureRecognizer(touchGesture)
     }
 }
