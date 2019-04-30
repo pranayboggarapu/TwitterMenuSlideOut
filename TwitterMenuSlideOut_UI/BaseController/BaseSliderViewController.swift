@@ -16,7 +16,7 @@ class BaseSliderViewController: UIViewController {
     var menuWidth: CGFloat = 300
     var isMenuOpened: Bool = false
     var acceptableGestureVelocity: CGFloat = 500
-    var menuController = TwitterMenuTableViewController()
+    var menuController = ChatRoomContainerController()
 
     var redView: UIView = {
         var v = UIView()

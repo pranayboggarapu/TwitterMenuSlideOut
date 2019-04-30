@@ -180,8 +180,21 @@ class ViewController: UITableViewController {
 
         navigationItem.title = "Home"
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(handleOpen))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(handleOpen))
 
+        var imageButton: UIButton = UIButton(type: .system)
+        let image = #imageLiteral(resourceName: "girl_profile").withRenderingMode(.alwaysOriginal)
+        imageButton.setImage(image, for: .normal)
+        imageButton.contentMode = .scaleAspectFit
+        imageButton.clipsToBounds = true
+        imageButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        imageButton.layer.cornerRadius = 20
+        
+        imageButton.addTarget(self, action: #selector(handleOpen), for: .touchUpInside)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageButton)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(handleClose))
     }
     

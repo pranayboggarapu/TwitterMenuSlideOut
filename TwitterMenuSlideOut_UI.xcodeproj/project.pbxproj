@@ -12,6 +12,7 @@
 		24D3CEC42271511A00A7047E /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC32271511A00A7047E /* BookmarksViewController.swift */; };
 		24D3CEC622717B0C00A7047E /* TwitterMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC522717B0C00A7047E /* TwitterMenuTableViewController.swift */; };
 		24D3CEC82271896600A7047E /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC72271896600A7047E /* MenuTableViewCell.swift */; };
+		24D3CECA2272AB8E00A7047E /* ChatRoomContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3CEC92272AB8E00A7047E /* ChatRoomContainerController.swift */; };
 		24E2CD8A226AFFC6008A8E6A /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */; };
 		24E2CD8C226B076E008A8E6A /* ElementSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */; };
 		24E2CD8E226EA34E008A8E6A /* SizedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */; };
@@ -40,6 +41,7 @@
 		24D3CEC32271511A00A7047E /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		24D3CEC522717B0C00A7047E /* TwitterMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMenuTableViewController.swift; sourceTree = "<group>"; };
 		24D3CEC72271896600A7047E /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		24D3CEC92272AB8E00A7047E /* ChatRoomContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomContainerController.swift; sourceTree = "<group>"; };
 		24E2CD89226AFFC6008A8E6A /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuHeaderView.swift; path = TwitterMenuSlideOut_UI/MenuHeaderView.swift; sourceTree = "<group>"; };
 		24E2CD8B226B076E008A8E6A /* ElementSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSpacer.swift; sourceTree = "<group>"; };
 		24E2CD8D226EA34E008A8E6A /* SizedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SizedImageView.swift; path = TwitterMenuSlideOut_UI/SizedImageView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		24EF9530225A8FDB00BA8586 = {
 			isa = PBXGroup;
 			children = (
+				24D3CEC92272AB8E00A7047E /* ChatRoomContainerController.swift */,
 				24D3CEC72271896600A7047E /* MenuTableViewCell.swift */,
 				24D3CEC522717B0C00A7047E /* TwitterMenuTableViewController.swift */,
 				24D3CEC32271511A00A7047E /* BookmarksViewController.swift */,
@@ -227,6 +230,7 @@
 				24EF953F225A8FDB00BA8586 /* ViewController.swift in Sources */,
 				24EF953D225A8FDB00BA8586 /* AppDelegate.swift in Sources */,
 				24E2CD8A226AFFC6008A8E6A /* MenuHeaderView.swift in Sources */,
+				24D3CECA2272AB8E00A7047E /* ChatRoomContainerController.swift in Sources */,
 				24D3CEC622717B0C00A7047E /* TwitterMenuTableViewController.swift in Sources */,
 				24D3CEC42271511A00A7047E /* BookmarksViewController.swift in Sources */,
 				248DECB522681903007ED3DE /* BaseSliderViewController.swift in Sources */,

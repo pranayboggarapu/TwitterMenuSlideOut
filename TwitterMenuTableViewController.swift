@@ -43,8 +43,56 @@ class CustomHeaderLabel: UILabel {
     
 }
 
+extension TwitterMenuTableViewController: UISearchBarDelegate {
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("The changed text is \(searchText)")
+        
+        
+        var changedSectionsData = sectionsData
+        
+        changedSectionsData.map { (group) -> ([String]) in
+            print("The group data is \(group)")
+            var individualStrings = group.value.filter({ (existingString) -> Bool in
+                print("The existing String variable is \(existingString)")
+                return existingString.lowercased().contains(searchText.lowercased())
+            })
+            resultsData[group.key] = individualStrings
+            print("The individual Strings are \(individualStrings)")
+            tableView.reloadData()
+            return individualStrings
+        }
+//        changedSectionsData.map { (group) -> [String] in
+//            print("The group data is \(group)")
+//             var individualStrings = group.value.filter({ (existingString) -> Bool in
+//                print("The existing String variable is \(existingString)")
+//                return existingString.lowercased().contains(searchText.lowercased())
+//            })
+//            resultsData[group.key] = individualStrings
+//            print("The individual Strings are \(individualStrings)")
+//            tableView.reloadData()
+//        }
+        
+//        changedSectionsData.forEach { (group,valueStrings) in
+//            print("Value Strings is \(valueStrings)")
+//            let filteredGroup = valueStrings.filter({ (currentString) -> Bool in
+//                print("The current String is \(currentString)")
+//                return currentString.lowercased().contains(searchText.lowercased())
+//            })
+//            print("My section changed is \(filteredGroup)")
+//            resultsData[group] = filteredGroup
+//            tableView.reloadData()
+//        }
+        print("Final Data after changing is \(resultsData)")
+        
+    }
+}
+
 class TwitterMenuTableViewController: UITableViewController {
 
+    var resultsData = [String: [String]]()
+    
     let sectionsData : [String: [String]] = [
         "UNREADS": ["general","introductions"],
         "CHANNELS": ["jobs"],
@@ -55,6 +103,7 @@ class TwitterMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.3058823529, green: 0.2235294118, blue: 0.2901960784, alpha: 1)
+        resultsData = sectionsData
         tableView.separatorStyle = .none
     }
     
@@ -64,17 +113,15 @@ class TwitterMenuTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        print("the value of number of sections is \(sectionsData.count)")
-        return sectionsData.count
+        print("the value of number of sections is \(resultsData.count)")
+        return resultsData.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (sectionsData[getSection(section)]?.count)!
+        return (resultsData[getSection(section)]?.count)!
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let label = CustomHeaderLabel()
-//        label.text = getSection(section)
         let label = CustomHeaderLabel(getSection(section))
         return label
     }
